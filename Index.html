@@ -1,0 +1,1870 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="theme-color" content="#059669">
+    <title>نگین الوند - سیستم حسابداری تولید قارچ</title>
+    <link rel="manifest" href="data:application/json;base64,eyJuYW1lIjoi2YbYr9uM2YYg2KfZhNmI2YbYryIsInNob3J0X25hbWUiOiLZhtqv2YrZhiDYp9mE2YjZhtivIiwic3RhcnRfdXJsIjoiLiIsImRpc3BsYXkiOiJzdGFuZGFsb25lIiwiYmFja2dyb3VuZF9jb2xvciI6IiMwNTk2NjkiLCJ0aGVtZV9jb2xvciI6IiMwNTk2NjkiLCJpY29ucyI6W3sic3JjIjoiZGF0YTppbWFnZS9zdmcreG1sO2Jhc2U2NCxQSE4yWnlCM2FXUjBhRDBpTWpRaUlHaGxhV2RvZEQwaU1qUWlJSFpwWlhkQ2IzZzlJakFnTUNBeU5DQXlOQ0lnWm1sc2JEMGlJek0yWkRNNU9TSStQSEJoZEdnaVpEMGlUVEV5SURKRE9DNDFJRElnTmlBMExqVWdOaUE0WXpBZ01pNDFJREV1TlNBMExqVWdNeTQxSURVdU5YWTJZekFnTVM0eExqa2dNaTA1SURJdE1TQXhMakV0TWkwdU9TMHlMVEV6ZGpZdE5pNDFJRE10TXk0MUxUTXVOUzAxTGpWRE1UUXVOU0F4TUNBeE1pQTNMalVnTVRJZ05YcHRNQ0F5WXpJdU5TQXdJRFFnTWkwdU5TQTBMVFJUTVRVdU5TQTJJREUwSURndE1TNDFJRFF0TkNBeUxUUXRNaTQxSURFdU5TMDBJRFF0TkNBMGVpSXZQand2YzNablBnPT0iLCJzaXplcyI6IjE5MngxOTIiLCJ0eXBlIjoiaW1hZ2Uvc3ZnK3htbCJ9XX0=">
+    <link rel="icon" href="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0iIzM2ZDM5OSI+PHBhdGggZD0iTTEyIDJDOC41IDIgNiA0LjUgNiA4YzAgMi41IDEuNSA0LjUgMy41IDUuNXY2YzAgMS4xLjkgMiAyIDJoMWMxLjEgMCAyLS45IDItMnYtNmMyLTEgMy41LTMgMy41LTUuNSAwLTMuNS0yLjUtNi02LTZ6bTAgMmMyLjUgMCA0IDIgNCA0cy0xLjUgMy00IDMtNC0xLjUtNC0zIDEuNS00IDQtNHoiLz48L3N2Zz4=">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'vazir': ['Vazir', 'Tahoma', 'Arial', 'sans-serif']
+                    },
+                    colors: {
+                        'emerald': {
+                            50: '#ecfdf5',
+                            100: '#d1fae5',
+                            200: '#a7f3d0',
+                            300: '#6ee7b7',
+                            400: '#34d399',
+                            500: '#10b981',
+                            600: '#059669',
+                            700: '#047857',
+                            800: '#065f46',
+                            900: '#064e3b'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Vazir:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * { 
+            font-family: 'Vazir', Tahoma, Arial, sans-serif; 
+            -webkit-tap-highlight-color: transparent;
+        }
+        body {
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 25%, #334155 50%, #475569 75%, #64748b 100%);
+            min-height: 100vh;
+        }
+        .gradient-header { 
+            background: linear-gradient(135deg, #059669 0%, #047857 50%, #065f46 100%); 
+            box-shadow: 0 10px 30px rgba(5, 150, 105, 0.3);
+        }
+        .card-shadow { 
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+        .btn-hover:hover { 
+            transform: translateY(-3px); 
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+        }
+        .btn-hover:active {
+            transform: translateY(-1px);
+        }
+        .mushroom-pattern { 
+            background-image: 
+                radial-gradient(circle at 25% 25%, rgba(255,255,255,0.1) 2px, transparent 2px),
+                radial-gradient(circle at 75% 75%, rgba(255,255,255,0.05) 1px, transparent 1px);
+            background-size: 50px 50px;
+        }
+        .glass-effect {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        .tab-btn.active {
+            background: linear-gradient(135deg, #10b981, #059669);
+            color: white;
+            box-shadow: 0 8px 25px rgba(16, 185, 129, 0.4);
+        }
+        .mobile-optimized {
+            touch-action: manipulation;
+            -webkit-user-select: none;
+            user-select: none;
+        }
+        .input-focus:focus {
+            border-color: #10b981;
+            box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1);
+            outline: none;
+        }
+        .status-active { background: linear-gradient(135deg, #10b981, #059669); }
+        .status-maintenance { background: linear-gradient(135deg, #f59e0b, #d97706); }
+        .status-inactive { background: linear-gradient(135deg, #ef4444, #dc2626); }
+        
+        @media (max-width: 768px) {
+            .mobile-text { font-size: 0.875rem; }
+            .mobile-padding { padding: 1rem; }
+            .mobile-grid { grid-template-columns: 1fr; }
+            
+            /* Mobile-specific improvements */
+            body { padding-bottom: 80px; }
+            .container { padding-left: 0.75rem; padding-right: 0.75rem; }
+            
+            /* Better touch targets */
+            button, input, select, textarea {
+                min-height: 44px;
+                font-size: 16px; /* Prevents zoom on iOS */
+            }
+            
+            /* Mobile header */
+            header .flex { flex-wrap: wrap; }
+            header h1 { font-size: 1.25rem; }
+            header p { font-size: 0.75rem; }
+            
+            /* Mobile tabs */
+            .tab-btn { 
+                padding: 0.75rem 1rem;
+                font-size: 0.75rem;
+                min-width: 80px;
+            }
+            
+            /* Mobile forms */
+            .grid { gap: 1rem; }
+            .grid.grid-cols-2 { grid-template-columns: 1fr; }
+            .grid.grid-cols-3 { grid-template-columns: 1fr; }
+            .grid.grid-cols-4 { grid-template-columns: 1fr; }
+            
+            /* Mobile tables */
+            table { font-size: 0.75rem; }
+            th, td { padding: 0.5rem; }
+            
+            /* Mobile cards */
+            .card-shadow { margin-bottom: 1rem; }
+            
+            /* Hide less important columns on mobile */
+            .mobile-hide { display: none; }
+        }
+        
+        /* PWA styles */
+        .install-prompt {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            right: 20px;
+            background: linear-gradient(135deg, #059669, #047857);
+            color: white;
+            padding: 1rem;
+            border-radius: 1rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            z-index: 1000;
+            display: none;
+        }
+        
+        /* Offline indicator */
+        .offline-indicator {
+            position: fixed;
+            top: 70px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #ef4444;
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 0.5rem;
+            font-size: 0.875rem;
+            z-index: 1000;
+            display: none;
+        }
+    </style>
+</head>
+<body class="font-vazir mobile-optimized">
+    <!-- PWA Install Prompt -->
+    <div id="installPrompt" class="install-prompt">
+        <div class="flex items-center justify-between">
+            <div>
+                <h3 class="font-bold text-sm">نصب برنامه نگین الوند</h3>
+                <p class="text-xs opacity-90">برای دسترسی آسان‌تر، برنامه را نصب کنید</p>
+            </div>
+            <div class="flex space-x-2 space-x-reverse">
+                <button onclick="installApp()" class="bg-white text-emerald-600 px-3 py-1 rounded-lg text-xs font-bold">
+                    نصب
+                </button>
+                <button onclick="dismissInstall()" class="text-white opacity-75 text-xs">
+                    بعداً
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Offline Indicator -->
+    <div id="offlineIndicator" class="offline-indicator">
+        📡 حالت آفلاین - اتصال اینترنت قطع است
+    </div>
+    <!-- Header -->
+    <header class="gradient-header text-white shadow-2xl mushroom-pattern sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-4">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center space-x-4 space-x-reverse">
+                    <div class="bg-white bg-opacity-20 p-3 rounded-2xl">
+                        <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12 2C8.5 2 6 4.5 6 8c0 2.5 1.5 4.5 3.5 5.5v6c0 1.1.9 2 2 2h1c1.1 0 2-.9 2-2v-6c2-1 3.5-3 3.5-5.5 0-3.5-2.5-6-6-6zm0 2c2.5 0 4 2 4 4s-1.5 3-4 3-4-1.5-4-3 1.5-4 4-4z"/>
+                        </svg>
+                    </div>
+                    <div>
+                        <h1 class="text-2xl font-bold">🍄 نگین الوند</h1>
+                        <p class="text-sm opacity-90">سیستم جامع حسابداری تولید قارچ</p>
+                    </div>
+                </div>
+                <div class="flex items-center space-x-3 space-x-reverse">
+                    <div class="text-xs bg-white bg-opacity-20 px-3 py-2 rounded-xl">
+                        📅 <span id="currentDate"></span>
+                    </div>
+                    <button class="bg-white bg-opacity-20 px-4 py-2 rounded-xl hover:bg-opacity-30 transition-all text-sm">
+                        خروج
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Dashboard Cards -->
+    <div class="container mx-auto px-4 py-6">
+        <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
+            <div class="glass-effect p-4 rounded-2xl card-shadow border-r-4 border-emerald-500">
+                <div class="text-center">
+                    <div class="bg-emerald-100 p-3 rounded-full w-12 h-12 mx-auto mb-3 flex items-center justify-center">
+                        <svg class="w-6 h-6 text-emerald-600" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12 2C8.5 2 6 4.5 6 8c0 2.5 1.5 4.5 3.5 5.5v6c0 1.1.9 2 2 2h1c1.1 0 2-.9 2-2v-6c2-1 3.5-3 3.5-5.5 0-3.5-2.5-6-6-6z"/>
+                        </svg>
+                    </div>
+                    <p class="text-gray-600 text-xs mb-1">تولید امروز</p>
+                    <p class="text-lg font-bold text-emerald-600" id="todayProduction">0 کیلو</p>
+                </div>
+            </div>
+
+            <div class="glass-effect p-4 rounded-2xl card-shadow border-r-4 border-blue-500">
+                <div class="text-center">
+                    <div class="bg-blue-100 p-3 rounded-full w-12 h-12 mx-auto mb-3 flex items-center justify-center">
+                        <svg class="w-6 h-6 text-blue-600" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M2 11a1 1 0 011-1h2a1 1 0 011 1v5a1 1 0 01-1 1H3a1 1 0 01-1-1v-5zM8 7a1 1 0 011-1h2a1 1 0 011 1v9a1 1 0 01-1 1H9a1 1 0 01-1-1V7zM14 4a1 1 0 011-1h2a1 1 0 011 1v12a1 1 0 01-1 1h-2a1 1 0 01-1-1V4z"/>
+                        </svg>
+                    </div>
+                    <p class="text-gray-600 text-xs mb-1">درآمد ماه</p>
+                    <p class="text-lg font-bold text-blue-600" id="monthlyRevenue">0 تومان</p>
+                </div>
+            </div>
+
+            <div class="glass-effect p-4 rounded-2xl card-shadow border-r-4 border-orange-500">
+                <div class="text-center">
+                    <div class="bg-orange-100 p-3 rounded-full w-12 h-12 mx-auto mb-3 flex items-center justify-center">
+                        <svg class="w-6 h-6 text-orange-600" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 14H7v-2h5v2zm5-4H7v-2h10v2zm0-4H7V7h10v2z"/>
+                        </svg>
+                    </div>
+                    <p class="text-gray-600 text-xs mb-1">سالن فعال</p>
+                    <p class="text-lg font-bold text-orange-600" id="activeHalls">0</p>
+                </div>
+            </div>
+
+            <div class="glass-effect p-4 rounded-2xl card-shadow border-r-4 border-purple-500">
+                <div class="text-center">
+                    <div class="bg-purple-100 p-3 rounded-full w-12 h-12 mx-auto mb-3 flex items-center justify-center">
+                        <svg class="w-6 h-6 text-purple-600" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M3.293 9.707a1 1 0 010-1.414l6-6a1 1 0 011.414 0l6 6a1 1 0 01-1.414 1.414L11 5.414V17a1 1 0 11-2 0V5.414L4.707 9.707a1 1 0 01-1.414 0z"/>
+                        </svg>
+                    </div>
+                    <p class="text-gray-600 text-xs mb-1">سود خالص</p>
+                    <p class="text-lg font-bold text-purple-600" id="netProfit">0 تومان</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Navigation Tabs -->
+        <div class="glass-effect rounded-2xl card-shadow mb-6 overflow-hidden">
+            <div class="flex overflow-x-auto scrollbar-hide">
+                <button class="tab-btn active px-4 py-3 font-medium text-sm whitespace-nowrap transition-all duration-300 rounded-t-2xl" onclick="showTab('production')">
+                    🍄 ثبت تولید
+                </button>
+                <button class="tab-btn px-4 py-3 font-medium text-gray-600 hover:text-emerald-600 text-sm whitespace-nowrap transition-all duration-300" onclick="showTab('halls')">
+                    🏢 سالن‌ها
+                </button>
+                <button class="tab-btn px-4 py-3 font-medium text-gray-600 hover:text-emerald-600 text-sm whitespace-nowrap transition-all duration-300" onclick="showTab('purchases')">
+                    🛒 ثبت خرید
+                </button>
+                <button class="tab-btn px-4 py-3 font-medium text-gray-600 hover:text-emerald-600 text-sm whitespace-nowrap transition-all duration-300" onclick="showTab('sales')">
+                    💰 ثبت فروش
+                </button>
+                <button class="tab-btn px-4 py-3 font-medium text-gray-600 hover:text-emerald-600 text-sm whitespace-nowrap transition-all duration-300" onclick="showTab('expenses')">
+                    💸 ثبت هزینه
+                </button>
+                <button class="tab-btn px-4 py-3 font-medium text-gray-600 hover:text-emerald-600 text-sm whitespace-nowrap transition-all duration-300" onclick="showTab('reports')">
+                    📊 گزارشات
+                </button>
+                <button class="tab-btn px-4 py-3 font-medium text-gray-600 hover:text-emerald-600 text-sm whitespace-nowrap transition-all duration-300" onclick="showTab('profitloss')">
+                    📈 سود و زیان
+                </button>
+            </div>
+
+            <!-- Production Tab -->
+            <div id="production" class="tab-content p-4">
+                <div class="flex justify-between items-center mb-4">
+                    <h2 class="text-lg font-bold text-gray-800">🍄 ثبت تولید و برداشت</h2>
+                    <button onclick="showAddProduction()" class="bg-gradient-to-r from-emerald-500 to-emerald-600 text-white px-4 py-2 rounded-xl btn-hover text-sm">
+                        + ثبت تولید
+                    </button>
+                </div>
+
+                <!-- Add Production Form -->
+                <div id="addProductionForm" class="hidden glass-effect p-4 rounded-xl mb-4">
+                    <h3 class="text-md font-semibold mb-4 text-gray-800">ثبت تولید جدید</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-sm font-medium mb-2 text-gray-700">شماره/نام سالن</label>
+                            <select id="productionHall" class="w-full p-3 border rounded-xl input-focus bg-white">
+                                <option value="">انتخاب سالن</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium mb-2 text-gray-700">تاریخ برداشت</label>
+                            <input type="date" id="harvestDate" class="w-full p-3 border rounded-xl input-focus">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium mb-2 text-gray-700">وزن برداشت (کیلوگرم)</label>
+                            <input type="number" step="0.1" id="harvestWeight" class="w-full p-3 border rounded-xl input-focus" placeholder="وزن قارچ برداشت شده">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium mb-2 text-gray-700">کیفیت محصول</label>
+                            <select id="productQuality" class="w-full p-3 border rounded-xl input-focus">
+                                <option value="A">درجه یک (A) - عالی</option>
+                                <option value="B">درجه دو (B) - خوب</option>
+                                <option value="C">درجه سه (C) - متوسط</option>
+                                <option value="D">درجه چهار (D) - ضایعات</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium mb-2 text-gray-700">مقدار کمپوست مصرفی (کیلو)</label>
+                            <input type="number" step="0.1" id="compostUsed" class="w-full p-3 border rounded-xl input-focus" placeholder="کمپوست مصرف شده">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium mb-2 text-gray-700">تعداد قارچ برداشت شده</label>
+                            <input type="number" id="mushroomCount" class="w-full p-3 border rounded-xl input-focus" placeholder="تعداد قارچ">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium mb-2 text-gray-700">دمای سالن (°C)</label>
+                            <input type="number" step="0.1" id="hallTemp" class="w-full p-3 border rounded-xl input-focus" placeholder="دمای سالن">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium mb-2 text-gray-700">رطوبت (%)</label>
+                            <input type="number" step="0.1" id="hallHumidity" class="w-full p-3 border rounded-xl input-focus" placeholder="درصد رطوبت">
+                        </div>
+                    </div>
+                    <div class="mt-4">
+                        <label class="block text-sm font-medium mb-2 text-gray-700">یادداشت</label>
+                        <textarea id="productionNotes" class="w-full p-3 border rounded-xl input-focus" rows="3" placeholder="یادداشت‌های مربوط به برداشت"></textarea>
+                    </div>
+                    <div class="flex space-x-3 space-x-reverse mt-4">
+                        <button onclick="addProduction()" class="bg-gradient-to-r from-emerald-500 to-emerald-600 text-white px-6 py-2 rounded-xl btn-hover">
+                            ثبت تولید
+                        </button>
+                        <button onclick="hideAddProduction()" class="bg-gradient-to-r from-gray-500 to-gray-600 text-white px-6 py-2 rounded-xl btn-hover">
+                            انصراف
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Production List -->
+                <div class="glass-effect rounded-xl overflow-hidden">
+                    <div class="overflow-x-auto">
+                        <table class="w-full">
+                            <thead class="bg-gradient-to-r from-emerald-500 to-emerald-600 text-white">
+                                <tr>
+                                    <th class="p-3 text-right text-sm">تاریخ</th>
+                                    <th class="p-3 text-right text-sm">سالن</th>
+                                    <th class="p-3 text-right text-sm">وزن (کیلو)</th>
+                                    <th class="p-3 text-right text-sm mobile-hide">کیفیت</th>
+                                    <th class="p-3 text-right text-sm mobile-hide">کمپوست</th>
+                                    <th class="p-3 text-right text-sm">راندمان</th>
+                                    <th class="p-3 text-right text-sm">عملیات</th>
+                                </tr>
+                            </thead>
+                            <tbody id="productionList" class="bg-white">
+                                <tr>
+                                    <td colspan="7" class="p-8 text-center text-gray-500">
+                                        هیچ تولیدی ثبت نشده است
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Halls Management Tab -->
+            <div id="halls" class="tab-content hidden p-4">
+                <div class="flex justify-between items-center mb-4">
+                    <h2 class="text-lg font-bold text-gray-800">🏢 مدیریت سالن‌های تولید</h2>
+                    <button onclick="showAddHall()" class="bg-gradient-to-r from-emerald-500 to-emerald-600 text-white px-4 py-2 rounded-xl btn-hover text-sm">
+                        + افزودن سالن
+                    </button>
+                </div>
+
+                <!-- Add Hall Form -->
+                <div id="addHallForm" class="hidden glass-effect p-4 rounded-xl mb-4">
+                    <h3 class="text-md font-semibold mb-4 text-gray-800">افزودن سالن جدید</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-sm font-medium mb-2 text-gray-700">شماره سالن</label>
+                            <input type="text" id="hallNumber" class="w-full p-3 border rounded-xl input-focus" placeholder="شماره سالن (مثال: S001)">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium mb-2 text-gray-700">نام سالن</label>
+                            <input type="text" id="hallName" class="w-full p-3 border rounded-xl input-focus" placeholder="نام سالن">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium mb-2 text-gray-700">مساحت (متر مربع)</label>
+                            <input type="number" id="hallArea" class="w-full p-3 border rounded-xl input-focus" placeholder="مساحت">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium mb-2 text-gray-700">ظرفیت تولید (کیلو/ماه)</label>
+                            <input type="number" id="hallCapacity" class="w-full p-3 border rounded-xl input-focus" placeholder="ظرفیت تولید">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium mb-2 text-gray-700">تاریخ راه‌اندازی</label>
+                            <input type="date" id="hallStartDate" class="w-full p-3 border rounded-xl input-focus">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium mb-2 text-gray-700">وضعیت</label>
+                            <select id="hallStatus" class="w-full p-3 border rounded-xl input-focus">
+                                <option value="active">فعال</option>
+                                <option value="maintenance">تعمیرات</option>
+                                <option value="inactive">غیرفعال</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="flex space-x-3 space-x-reverse mt-4">
+                        <button onclick="addHall()" class="bg-gradient-to-r from-emerald-500 to-emerald-600 text-white px-6 py-2 rounded-xl btn-hover">
+                            ثبت سالن
+                        </button>
+                        <button onclick="hideAddHall()" class="bg-gradient-to-r from-gray-500 to-gray-600 text-white px-6 py-2 rounded-xl btn-hover">
+                            انصراف
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Halls Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4" id="hallsList">
+                    <div class="glass-effect p-4 rounded-xl text-center">
+                        <p class="text-gray-500">هیچ سالنی تعریف نشده است</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Purchases Tab -->
+            <div id="purchases" class="tab-content hidden p-4">
+                <div class="flex justify-between items-center mb-4">
+                    <h2 class="text-lg font-bold text-gray-800">🛒 ثبت خرید مواد اولیه</h2>
+                    <button onclick="showAddPurchase()" class="bg-gradient-to-r from-blue-500 to-blue-600 text-white px-4 py-2 rounded-xl btn-hover text-sm">
+                        + ثبت خرید
+                    </button>
+                </div>
+
+                <!-- Add Purchase Form -->
+                <div id="addPurchaseForm" class="hidden glass-effect p-4 rounded-xl mb-4">
+                    <h3 class="text-md font-semibold mb-4 text-gray-800">ثبت خرید جدید</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-sm font-medium mb-2 text-gray-700">نام کالا/ماده</label>
+                            <input type="text" id="purchaseItem" class="w-full p-3 border rounded-xl input-focus" placeholder="نام کالا یا ماده اولیه">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium mb-2 text-gray-700">نام فروشنده</label>
+                            <input type="text" id="supplierName" class="w-full p-3 border rounded-xl input-focus" placeholder="نام فروشنده">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium mb-2 text-gray-700">تاریخ خرید</label>
+                            <input type="date" id="purchaseDate" class="w-full p-3 border rounded-xl input-focus">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium mb-2 text-gray-700">مقدار</label>
+                            <input type="number" step="0.1" id="purchaseQuantity" class="w-full p-3 border rounded-xl input-focus" placeholder="مقدار خریداری شده">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium mb-2 text-gray-700">واحد</label>
+                            <select id="purchaseUnit" class="w-full p-3 border rounded-xl input-focus">
+                                <option value="kg">کیلوگرم</option>
+                                <option value="ton">تن</option>
+                                <option value="liter">لیتر</option>
+                                <option value="piece">عدد</option>
+                                <option value="bag">کیسه</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium mb-2 text-gray-700">قیمت واحد (تومان)</label>
+                            <input type="number" id="purchaseUnitPrice" class="w-full p-3 border rounded-xl input-focus" placeholder="قیمت هر واحد">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium mb-2 text-gray-700">مبلغ کل (تومان)</label>
+                            <input type="number" id="purchaseTotalAmount" class="w-full p-3 border rounded-xl input-focus" placeholder="مبلغ کل" readonly>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium mb-2 text-gray-700">نوع پرداخت</label>
+                            <select id="purchasePaymentType" class="w-full p-3 border rounded-xl input-focus">
+                                <option value="cash">نقدی</option>
+                                <option value="credit">اعتباری</option>
+                                <option value="check">چک</option>
+                                <option value="transfer">حواله</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="mt-4">
+                        <label class="block text-sm font-medium mb-2 text-gray-700">توضیحات</label>
+                        <textarea id="purchaseNotes" class="w-full p-3 border rounded-xl input-focus" rows="3" placeholder="توضیحات خرید"></textarea>
+                    </div>
+                    <div class="flex space-x-3 space-x-reverse mt-4">
+                        <button onclick="addPurchase()" class="bg-gradient-to-r from-blue-500 to-blue-600 text-white px-6 py-2 rounded-xl btn-hover">
+                            ثبت خرید
+                        </button>
+                        <button onclick="hideAddPurchase()" class="bg-gradient-to-r from-gray-500 to-gray-600 text-white px-6 py-2 rounded-xl btn-hover">
+                            انصراف
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Purchases List -->
+                <div class="glass-effect rounded-xl overflow-hidden">
+                    <div class="overflow-x-auto">
+                        <table class="w-full">
+                            <thead class="bg-gradient-to-r from-blue-500 to-blue-600 text-white">
+                                <tr>
+                                    <th class="p-3 text-right text-sm">تاریخ</th>
+                                    <th class="p-3 text-right text-sm">کالا</th>
+                                    <th class="p-3 text-right text-sm">فروشنده</th>
+                                    <th class="p-3 text-right text-sm">مقدار</th>
+                                    <th class="p-3 text-right text-sm">قیمت واحد</th>
+                                    <th class="p-3 text-right text-sm">مبلغ کل</th>
+                                    <th class="p-3 text-right text-sm">عملیات</th>
+                                </tr>
+                            </thead>
+                            <tbody id="purchasesList" class="bg-white">
+                                <tr>
+                                    <td colspan="7" class="p-8 text-center text-gray-500">
+                                        هیچ خریدی ثبت نشده است
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sales Tab -->
+            <div id="sales" class="tab-content hidden p-4">
+                <div class="flex justify-between items-center mb-4">
+                    <h2 class="text-lg font-bold text-gray-800">💰 ثبت فروش محصولات</h2>
+                    <button onclick="showAddSale()" class="bg-gradient-to-r from-green-500 to-green-600 text-white px-4 py-2 rounded-xl btn-hover text-sm">
+                        + ثبت فروش
+                    </button>
+                </div>
+
+                <!-- Add Sale Form -->
+                <div id="addSaleForm" class="hidden glass-effect p-4 rounded-xl mb-4">
+                    <h3 class="text-md font-semibold mb-4 text-gray-800">ثبت فروش جدید</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-sm font-medium mb-2 text-gray-700">نام مشتری</label>
+                            <input type="text" id="customerName" class="w-full p-3 border rounded-xl input-focus" placeholder="نام مشتری">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium mb-2 text-gray-700">شماره تماس</label>
+                            <input type="tel" id="customerPhone" class="w-full p-3 border rounded-xl input-focus" placeholder="شماره تماس">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium mb-2 text-gray-700">تاریخ فروش</label>
+                            <input type="date" id="saleDate" class="w-full p-3 border rounded-xl input-focus">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium mb-2 text-gray-700">نوع مشتری</label>
+                            <select id="customerType" class="w-full p-3 border rounded-xl input-focus">
+                                <option value="retail">خرده‌فروشی</option>
+                                <option value="wholesale">عمده‌فروشی</option>
+                                <option value="restaurant">رستوران</option>
+                                <option value="supermarket">سوپرمارکت</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium mb-2 text-gray-700">وزن فروخته شده (کیلو)</label>
+                            <input type="number" step="0.1" id="saleWeight" class="w-full p-3 border rounded-xl input-focus" placeholder="وزن">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium mb-2 text-gray-700">کیفیت محصول</label>
+                            <select id="saleQuality" class="w-full p-3 border rounded-xl input-focus">
+                                <option value="A">درجه یک (A)</option>
+                                <option value="B">درجه دو (B)</option>
+                                <option value="C">درجه سه (C)</option>
+                                <option value="D">درجه چهار (D)</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium mb-2 text-gray-700">قیمت هر کیلو (تومان)</label>
+                            <input type="number" id="pricePerKg" class="w-full p-3 border rounded-xl input-focus" placeholder="قیمت هر کیلو">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium mb-2 text-gray-700">مبلغ کل (تومان)</label>
+                            <input type="number" id="saleTotalAmount" class="w-full p-3 border rounded-xl input-focus" placeholder="مبلغ کل" readonly>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium mb-2 text-gray-700">نوع پرداخت</label>
+                            <select id="salePaymentType" class="w-full p-3 border rounded-xl input-focus">
+                                <option value="cash">نقدی</option>
+                                <option value="credit">اعتباری</option>
+                                <option value="check">چک</option>
+                                <option value="transfer">حواله</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium mb-2 text-gray-700">قیمت تمام شده (تومان/کیلو)</label>
+                            <input type="number" id="costPrice" class="w-full p-3 border rounded-xl input-focus" placeholder="قیمت تمام شده">
+                        </div>
+                    </div>
+                    <div class="mt-4">
+                        <label class="block text-sm font-medium mb-2 text-gray-700">توضیحات</label>
+                        <textarea id="saleNotes" class="w-full p-3 border rounded-xl input-focus" rows="3" placeholder="توضیحات فروش"></textarea>
+                    </div>
+                    <div class="flex space-x-3 space-x-reverse mt-4">
+                        <button onclick="addSale()" class="bg-gradient-to-r from-green-500 to-green-600 text-white px-6 py-2 rounded-xl btn-hover">
+                            ثبت فروش
+                        </button>
+                        <button onclick="hideAddSale()" class="bg-gradient-to-r from-gray-500 to-gray-600 text-white px-6 py-2 rounded-xl btn-hover">
+                            انصراف
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Sales List -->
+                <div class="glass-effect rounded-xl overflow-hidden">
+                    <div class="overflow-x-auto">
+                        <table class="w-full">
+                            <thead class="bg-gradient-to-r from-green-500 to-green-600 text-white">
+                                <tr>
+                                    <th class="p-3 text-right text-sm">تاریخ</th>
+                                    <th class="p-3 text-right text-sm">مشتری</th>
+                                    <th class="p-3 text-right text-sm">وزن</th>
+                                    <th class="p-3 text-right text-sm">قیمت/کیلو</th>
+                                    <th class="p-3 text-right text-sm">مبلغ کل</th>
+                                    <th class="p-3 text-right text-sm">سود</th>
+                                    <th class="p-3 text-right text-sm">عملیات</th>
+                                </tr>
+                            </thead>
+                            <tbody id="salesList" class="bg-white">
+                                <tr>
+                                    <td colspan="7" class="p-8 text-center text-gray-500">
+                                        هیچ فروشی ثبت نشده است
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Expenses Tab -->
+            <div id="expenses" class="tab-content hidden p-4">
+                <div class="flex justify-between items-center mb-4">
+                    <h2 class="text-lg font-bold text-gray-800">💸 ثبت هزینه‌ها</h2>
+                    <button onclick="showAddExpense()" class="bg-gradient-to-r from-red-500 to-red-600 text-white px-4 py-2 rounded-xl btn-hover text-sm">
+                        + ثبت هزینه
+                    </button>
+                </div>
+
+                <!-- Add Expense Form -->
+                <div id="addExpenseForm" class="hidden glass-effect p-4 rounded-xl mb-4">
+                    <h3 class="text-md font-semibold mb-4 text-gray-800">ثبت هزینه جدید</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-sm font-medium mb-2 text-gray-700">نوع هزینه</label>
+                            <select id="expenseCategory" class="w-full p-3 border rounded-xl input-focus">
+                                <option value="materials">مواد اولیه</option>
+                                <option value="labor">نیروی کار</option>
+                                <option value="energy">انرژی (برق، گاز، آب)</option>
+                                <option value="maintenance">تعمیر و نگهداری</option>
+                                <option value="transport">حمل و نقل</option>
+                                <option value="packaging">بسته‌بندی</option>
+                                <option value="insurance">بیمه</option>
+                                <option value="rent">اجاره</option>
+                                <option value="other">سایر</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium mb-2 text-gray-700">تاریخ</label>
+                            <input type="date" id="expenseDate" class="w-full p-3 border rounded-xl input-focus">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium mb-2 text-gray-700">مبلغ (تومان)</label>
+                            <input type="number" id="expenseAmount" class="w-full p-3 border rounded-xl input-focus" placeholder="مبلغ هزینه">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium mb-2 text-gray-700">پرداخت‌کننده</label>
+                            <input type="text" id="paidTo" class="w-full p-3 border rounded-xl input-focus" placeholder="نام فرد یا شرکت">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium mb-2 text-gray-700">نوع پرداخت</label>
+                            <select id="expensePaymentType" class="w-full p-3 border rounded-xl input-focus">
+                                <option value="cash">نقدی</option>
+                                <option value="check">چک</option>
+                                <option value="transfer">حواله</option>
+                                <option value="card">کارت</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium mb-2 text-gray-700">شماره سند</label>
+                            <input type="text" id="expenseDocNumber" class="w-full p-3 border rounded-xl input-focus" placeholder="شماره سند">
+                        </div>
+                    </div>
+                    <div class="mt-4">
+                        <label class="block text-sm font-medium mb-2 text-gray-700">توضیحات</label>
+                        <textarea id="expenseDescription" class="w-full p-3 border rounded-xl input-focus" rows="3" placeholder="توضیحات هزینه"></textarea>
+                    </div>
+                    <div class="flex space-x-3 space-x-reverse mt-4">
+                        <button onclick="addExpense()" class="bg-gradient-to-r from-red-500 to-red-600 text-white px-6 py-2 rounded-xl btn-hover">
+                            ثبت هزینه
+                        </button>
+                        <button onclick="hideAddExpense()" class="bg-gradient-to-r from-gray-500 to-gray-600 text-white px-6 py-2 rounded-xl btn-hover">
+                            انصراف
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Expenses List -->
+                <div class="glass-effect rounded-xl overflow-hidden">
+                    <div class="overflow-x-auto">
+                        <table class="w-full">
+                            <thead class="bg-gradient-to-r from-red-500 to-red-600 text-white">
+                                <tr>
+                                    <th class="p-3 text-right text-sm">تاریخ</th>
+                                    <th class="p-3 text-right text-sm">نوع هزینه</th>
+                                    <th class="p-3 text-right text-sm">مبلغ</th>
+                                    <th class="p-3 text-right text-sm">پرداخت به</th>
+                                    <th class="p-3 text-right text-sm">نوع پرداخت</th>
+                                    <th class="p-3 text-right text-sm">عملیات</th>
+                                </tr>
+                            </thead>
+                            <tbody id="expensesList" class="bg-white">
+                                <tr>
+                                    <td colspan="6" class="p-8 text-center text-gray-500">
+                                        هیچ هزینه‌ای ثبت نشده است
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Reports Tab -->
+            <div id="reports" class="tab-content hidden p-4">
+                <h2 class="text-lg font-bold mb-4 text-gray-800">📊 گزارشات تخصصی</h2>
+                
+                <!-- Report Filters -->
+                <div class="glass-effect p-4 rounded-xl mb-4">
+                    <h3 class="text-md font-semibold mb-3 text-gray-800">فیلترهای گزارش</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+                        <div>
+                            <label class="block text-sm font-medium mb-2 text-gray-700">از تاریخ</label>
+                            <input type="date" id="reportFromDate" class="w-full p-3 border rounded-xl input-focus">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium mb-2 text-gray-700">تا تاریخ</label>
+                            <input type="date" id="reportToDate" class="w-full p-3 border rounded-xl input-focus">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium mb-2 text-gray-700">سالن</label>
+                            <select id="reportHall" class="w-full p-3 border rounded-xl input-focus">
+                                <option value="">همه سالن‌ها</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium mb-2 text-gray-700">طرف حساب</label>
+                            <input type="text" id="reportParty" class="w-full p-3 border rounded-xl input-focus" placeholder="نام مشتری یا فروشنده">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mb-6">
+                    <div class="glass-effect p-4 rounded-xl card-shadow">
+                        <h3 class="font-semibold mb-3 text-emerald-700">🍄 گزارش تولید</h3>
+                        <p class="text-gray-600 mb-4 text-sm">تحلیل تولید بر اساس سالن و تاریخ</p>
+                        <button onclick="generateProductionReport()" class="w-full bg-gradient-to-r from-emerald-500 to-emerald-600 text-white py-2 rounded-xl btn-hover text-sm">
+                            تولید گزارش
+                        </button>
+                    </div>
+
+                    <div class="glass-effect p-4 rounded-xl card-shadow">
+                        <h3 class="font-semibold mb-3 text-blue-700">💰 گزارش فروش</h3>
+                        <p class="text-gray-600 mb-4 text-sm">تحلیل فروش بر اساس مشتری و تاریخ</p>
+                        <button onclick="generateSalesReport()" class="w-full bg-gradient-to-r from-blue-500 to-blue-600 text-white py-2 rounded-xl btn-hover text-sm">
+                            تولید گزارش
+                        </button>
+                    </div>
+
+                    <div class="glass-effect p-4 rounded-xl card-shadow">
+                        <h3 class="font-semibold mb-3 text-purple-700">📈 گزارش راندمان سالن‌ها</h3>
+                        <p class="text-gray-600 mb-4 text-sm">راندمان بر اساس کمپوست و تولید</p>
+                        <button onclick="generateEfficiencyReport()" class="w-full bg-gradient-to-r from-purple-500 to-purple-600 text-white py-2 rounded-xl btn-hover text-sm">
+                            تولید گزارش
+                        </button>
+                    </div>
+
+                    <div class="glass-effect p-4 rounded-xl card-shadow">
+                        <h3 class="font-semibold mb-3 text-orange-700">🛒 گزارش خرید</h3>
+                        <p class="text-gray-600 mb-4 text-sm">تحلیل خرید بر اساس فروشنده</p>
+                        <button onclick="generatePurchaseReport()" class="w-full bg-gradient-to-r from-orange-500 to-orange-600 text-white py-2 rounded-xl btn-hover text-sm">
+                            تولید گزارش
+                        </button>
+                    </div>
+
+                    <div class="glass-effect p-4 rounded-xl card-shadow">
+                        <h3 class="font-semibold mb-3 text-red-700">💸 گزارش هزینه‌ها</h3>
+                        <p class="text-gray-600 mb-4 text-sm">تحلیل هزینه‌ها بر اساس نوع</p>
+                        <button onclick="generateExpenseReport()" class="w-full bg-gradient-to-r from-red-500 to-red-600 text-white py-2 rounded-xl btn-hover text-sm">
+                            تولید گزارش
+                        </button>
+                    </div>
+
+                    <div class="glass-effect p-4 rounded-xl card-shadow">
+                        <h3 class="font-semibold mb-3 text-indigo-700">👥 گزارش طرف حساب</h3>
+                        <p class="text-gray-600 mb-4 text-sm">تراکنش‌های هر طرف حساب</p>
+                        <button onclick="generatePartyReport()" class="w-full bg-gradient-to-r from-indigo-500 to-indigo-600 text-white py-2 rounded-xl btn-hover text-sm">
+                            تولید گزارش
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Report Display Area -->
+                <div id="reportDisplay" class="hidden glass-effect p-4 rounded-xl card-shadow">
+                    <div class="flex justify-between items-center mb-4">
+                        <h3 id="reportTitle" class="text-md font-semibold text-gray-800"></h3>
+                        <div class="space-x-2 space-x-reverse">
+                            <button onclick="printReport()" class="bg-gradient-to-r from-gray-500 to-gray-600 text-white px-4 py-2 rounded-xl btn-hover text-sm">
+                                🖨️ چاپ
+                            </button>
+                            <button onclick="exportReport()" class="bg-gradient-to-r from-emerald-500 to-emerald-600 text-white px-4 py-2 rounded-xl btn-hover text-sm">
+                                📊 خروجی
+                            </button>
+                        </div>
+                    </div>
+                    <div id="reportContent"></div>
+                </div>
+            </div>
+
+            <!-- Profit & Loss Tab -->
+            <div id="profitloss" class="tab-content hidden p-4">
+                <h2 class="text-lg font-bold mb-4 text-gray-800">📈 گزارش سود و زیان</h2>
+                
+                <div class="glass-effect p-4 rounded-xl mb-4">
+                    <h3 class="text-md font-semibold mb-3 text-gray-800">انتخاب دوره</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                        <div>
+                            <label class="block text-sm font-medium mb-2 text-gray-700">از تاریخ</label>
+                            <input type="date" id="plFromDate" class="w-full p-3 border rounded-xl input-focus">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium mb-2 text-gray-700">تا تاریخ</label>
+                            <input type="date" id="plToDate" class="w-full p-3 border rounded-xl input-focus">
+                        </div>
+                        <div class="flex items-end">
+                            <button onclick="generateProfitLossReport()" class="w-full bg-gradient-to-r from-emerald-500 to-emerald-600 text-white py-3 rounded-xl btn-hover">
+                                تولید گزارش
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="profitLossDisplay" class="glass-effect p-4 rounded-xl">
+                    <div class="text-center text-gray-500 py-8">
+                        برای مشاهده گزارش سود و زیان، دوره مورد نظر را انتخاب کنید
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Data Storage
+        let productions = JSON.parse(localStorage.getItem('neginAlvand_productions')) || [];
+        let halls = JSON.parse(localStorage.getItem('neginAlvand_halls')) || [];
+        let purchases = JSON.parse(localStorage.getItem('neginAlvand_purchases')) || [];
+        let sales = JSON.parse(localStorage.getItem('neginAlvand_sales')) || [];
+        let expenses = JSON.parse(localStorage.getItem('neginAlvand_expenses')) || [];
+
+        // PWA Variables
+        let deferredPrompt;
+        let isInstalled = false;
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', function() {
+            updateCurrentDate();
+            updateDashboard();
+            loadProductions();
+            loadHalls();
+            loadPurchases();
+            loadSales();
+            loadExpenses();
+            updateHallOptions();
+            setupEventListeners();
+            initializePWA();
+            checkOnlineStatus();
+        });
+
+        // PWA Functions
+        function initializePWA() {
+            // Check if already installed
+            if (window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone) {
+                isInstalled = true;
+                return;
+            }
+
+            // Listen for beforeinstallprompt event
+            window.addEventListener('beforeinstallprompt', (e) => {
+                e.preventDefault();
+                deferredPrompt = e;
+                showInstallPrompt();
+            });
+
+            // Check if dismissed before
+            if (localStorage.getItem('installPromptDismissed') !== 'true') {
+                setTimeout(showInstallPrompt, 3000);
+            }
+        }
+
+        function showInstallPrompt() {
+            if (!isInstalled && !localStorage.getItem('installPromptDismissed')) {
+                document.getElementById('installPrompt').style.display = 'block';
+            }
+        }
+
+        function installApp() {
+            if (deferredPrompt) {
+                deferredPrompt.prompt();
+                deferredPrompt.userChoice.then((choiceResult) => {
+                    if (choiceResult.outcome === 'accepted') {
+                        console.log('User accepted the install prompt');
+                        isInstalled = true;
+                    }
+                    deferredPrompt = null;
+                    document.getElementById('installPrompt').style.display = 'none';
+                });
+            } else {
+                // Fallback for browsers that don't support PWA install
+                alert('برای نصب برنامه:\n\n📱 Android Chrome: منو ← "Add to Home screen"\n🍎 iOS Safari: Share ← "Add to Home Screen"\n💻 Desktop: آدرس بار ← آیکون نصب');
+                dismissInstall();
+            }
+        }
+
+        function dismissInstall() {
+            document.getElementById('installPrompt').style.display = 'none';
+            localStorage.setItem('installPromptDismissed', 'true');
+        }
+
+        // Online/Offline Status
+        function checkOnlineStatus() {
+            function updateOnlineStatus() {
+                const offlineIndicator = document.getElementById('offlineIndicator');
+                if (navigator.onLine) {
+                    offlineIndicator.style.display = 'none';
+                } else {
+                    offlineIndicator.style.display = 'block';
+                }
+            }
+
+            window.addEventListener('online', updateOnlineStatus);
+            window.addEventListener('offline', updateOnlineStatus);
+            updateOnlineStatus();
+        }
+
+        function setupEventListeners() {
+            // Auto calculate purchase total
+            document.getElementById('purchaseQuantity')?.addEventListener('input', calculatePurchaseTotal);
+            document.getElementById('purchaseUnitPrice')?.addEventListener('input', calculatePurchaseTotal);
+            
+            // Auto calculate sale total
+            document.getElementById('saleWeight')?.addEventListener('input', calculateSaleTotal);
+            document.getElementById('pricePerKg')?.addEventListener('input', calculateSaleTotal);
+        }
+
+        // Date Functions
+        function updateCurrentDate() {
+            const today = new Date();
+            const persianDate = today.toLocaleDateString('fa-IR');
+            document.getElementById('currentDate').textContent = persianDate;
+        }
+
+        // Tab Functions
+        function showTab(tabName) {
+            document.querySelectorAll('.tab-content').forEach(tab => {
+                tab.classList.add('hidden');
+            });
+            
+            document.querySelectorAll('.tab-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            
+            document.getElementById(tabName).classList.remove('hidden');
+            event.target.classList.add('active');
+        }
+
+        // Production Functions
+        function showAddProduction() {
+            document.getElementById('addProductionForm').classList.remove('hidden');
+            document.getElementById('harvestDate').value = new Date().toISOString().split('T')[0];
+        }
+
+        function hideAddProduction() {
+            document.getElementById('addProductionForm').classList.add('hidden');
+            clearProductionForm();
+        }
+
+        function clearProductionForm() {
+            document.getElementById('productionHall').value = '';
+            document.getElementById('harvestWeight').value = '';
+            document.getElementById('productQuality').value = 'A';
+            document.getElementById('harvestDate').value = '';
+            document.getElementById('compostUsed').value = '';
+            document.getElementById('mushroomCount').value = '';
+            document.getElementById('hallTemp').value = '';
+            document.getElementById('hallHumidity').value = '';
+            document.getElementById('productionNotes').value = '';
+        }
+
+        function addProduction() {
+            const hall = document.getElementById('productionHall').value;
+            const weight = parseFloat(document.getElementById('harvestWeight').value);
+            const quality = document.getElementById('productQuality').value;
+            const date = document.getElementById('harvestDate').value;
+            const compost = parseFloat(document.getElementById('compostUsed').value) || 0;
+            const count = parseInt(document.getElementById('mushroomCount').value) || 0;
+            const temp = parseFloat(document.getElementById('hallTemp').value) || 0;
+            const humidity = parseFloat(document.getElementById('hallHumidity').value) || 0;
+            const notes = document.getElementById('productionNotes').value;
+
+            if (!hall || !weight || !date) {
+                alert('لطفاً سالن، وزن و تاریخ را وارد کنید');
+                return;
+            }
+
+            const efficiency = compost > 0 ? ((weight / compost) * 100).toFixed(1) : 0;
+
+            const production = {
+                id: Date.now(),
+                hall,
+                weight,
+                quality,
+                date,
+                compost,
+                count,
+                temp,
+                humidity,
+                efficiency,
+                notes
+            };
+
+            productions.push(production);
+            localStorage.setItem('neginAlvand_productions', JSON.stringify(productions));
+            
+            loadProductions();
+            updateDashboard();
+            hideAddProduction();
+            
+            alert('تولید با موفقیت ثبت شد');
+        }
+
+        function loadProductions() {
+            const tbody = document.getElementById('productionList');
+            
+            if (productions.length === 0) {
+                tbody.innerHTML = '<tr><td colspan="7" class="p-8 text-center text-gray-500">هیچ تولیدی ثبت نشده است</td></tr>';
+                return;
+            }
+
+            tbody.innerHTML = productions.map(production => `
+                <tr class="border-b hover:bg-gray-50">
+                    <td class="p-3 text-sm">${new Date(production.date).toLocaleDateString('fa-IR')}</td>
+                    <td class="p-3 font-semibold text-sm">${production.hall}</td>
+                    <td class="p-3 text-sm">${production.weight} کیلو</td>
+                    <td class="p-3 text-sm mobile-hide">
+                        <span class="px-2 py-1 rounded text-xs ${getQualityColor(production.quality)}">
+                            ${production.quality}
+                        </span>
+                    </td>
+                    <td class="p-3 text-sm mobile-hide">${production.compost} کیلو</td>
+                    <td class="p-3 text-sm font-bold ${production.efficiency >= 20 ? 'text-green-600' : production.efficiency >= 15 ? 'text-orange-600' : 'text-red-600'}">${production.efficiency}%</td>
+                    <td class="p-3">
+                        <button onclick="deleteProduction(${production.id})" class="text-red-600 hover:text-red-800 text-sm">
+                            🗑️
+                        </button>
+                    </td>
+                </tr>
+            `).join('');
+        }
+
+        function deleteProduction(id) {
+            if (confirm('آیا از حذف این تولید اطمینان دارید؟')) {
+                productions = productions.filter(p => p.id !== id);
+                localStorage.setItem('neginAlvand_productions', JSON.stringify(productions));
+                loadProductions();
+                updateDashboard();
+            }
+        }
+
+        // Hall Functions
+        function showAddHall() {
+            document.getElementById('addHallForm').classList.remove('hidden');
+        }
+
+        function hideAddHall() {
+            document.getElementById('addHallForm').classList.add('hidden');
+            clearHallForm();
+        }
+
+        function clearHallForm() {
+            document.getElementById('hallNumber').value = '';
+            document.getElementById('hallName').value = '';
+            document.getElementById('hallArea').value = '';
+            document.getElementById('hallCapacity').value = '';
+            document.getElementById('hallStartDate').value = '';
+            document.getElementById('hallStatus').value = 'active';
+        }
+
+        function addHall() {
+            const number = document.getElementById('hallNumber').value;
+            const name = document.getElementById('hallName').value;
+            const area = parseFloat(document.getElementById('hallArea').value);
+            const capacity = parseFloat(document.getElementById('hallCapacity').value);
+            const startDate = document.getElementById('hallStartDate').value;
+            const status = document.getElementById('hallStatus').value;
+
+            if (!number || !name || !area) {
+                alert('لطفاً شماره، نام سالن و مساحت را وارد کنید');
+                return;
+            }
+
+            const hall = {
+                id: Date.now(),
+                number,
+                name,
+                area,
+                capacity,
+                startDate,
+                status,
+                displayName: `${number} - ${name}`
+            };
+
+            halls.push(hall);
+            localStorage.setItem('neginAlvand_halls', JSON.stringify(halls));
+            
+            loadHalls();
+            updateHallOptions();
+            updateDashboard();
+            hideAddHall();
+            
+            alert('سالن با موفقیت ثبت شد');
+        }
+
+        function loadHalls() {
+            const container = document.getElementById('hallsList');
+            
+            if (halls.length === 0) {
+                container.innerHTML = '<div class="glass-effect p-4 rounded-xl text-center"><p class="text-gray-500">هیچ سالنی تعریف نشده است</p></div>';
+                return;
+            }
+
+            container.innerHTML = halls.map(hall => `
+                <div class="glass-effect p-4 rounded-xl card-shadow">
+                    <div class="flex justify-between items-start mb-3">
+                        <h3 class="font-semibold text-md">${hall.displayName}</h3>
+                        <span class="text-xs px-2 py-1 rounded-full text-white ${getHallStatusClass(hall.status)}">
+                            ${getStatusText(hall.status)}
+                        </span>
+                    </div>
+                    <div class="space-y-2 text-sm text-gray-600">
+                        <p>📐 مساحت: ${hall.area} متر مربع</p>
+                        <p>📊 ظرفیت: ${hall.capacity || 0} کیلو/ماه</p>
+                        <p>📅 راه‌اندازی: ${hall.startDate ? new Date(hall.startDate).toLocaleDateString('fa-IR') : '-'}</p>
+                    </div>
+                    <div class="mt-3 flex space-x-2 space-x-reverse">
+                        <button onclick="deleteHall(${hall.id})" class="text-red-600 hover:text-red-800 text-sm">
+                            حذف
+                        </button>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function deleteHall(id) {
+            if (confirm('آیا از حذف این سالن اطمینان دارید؟')) {
+                halls = halls.filter(h => h.id !== id);
+                localStorage.setItem('neginAlvand_halls', JSON.stringify(halls));
+                loadHalls();
+                updateHallOptions();
+                updateDashboard();
+            }
+        }
+
+        function updateHallOptions() {
+            const selects = ['productionHall', 'reportHall'];
+            selects.forEach(selectId => {
+                const select = document.getElementById(selectId);
+                if (select) {
+                    const currentValue = select.value;
+                    select.innerHTML = '<option value="">انتخاب سالن</option>' + 
+                        halls.filter(h => h.status === 'active')
+                             .map(h => `<option value="${h.displayName}">${h.displayName}</option>`)
+                             .join('');
+                    select.value = currentValue;
+                }
+            });
+        }
+
+        // Purchase Functions
+        function showAddPurchase() {
+            document.getElementById('addPurchaseForm').classList.remove('hidden');
+            document.getElementById('purchaseDate').value = new Date().toISOString().split('T')[0];
+        }
+
+        function hideAddPurchase() {
+            document.getElementById('addPurchaseForm').classList.add('hidden');
+            clearPurchaseForm();
+        }
+
+        function clearPurchaseForm() {
+            document.getElementById('purchaseItem').value = '';
+            document.getElementById('supplierName').value = '';
+            document.getElementById('purchaseDate').value = '';
+            document.getElementById('purchaseQuantity').value = '';
+            document.getElementById('purchaseUnit').value = 'kg';
+            document.getElementById('purchaseUnitPrice').value = '';
+            document.getElementById('purchaseTotalAmount').value = '';
+            document.getElementById('purchasePaymentType').value = 'cash';
+            document.getElementById('purchaseNotes').value = '';
+        }
+
+        function calculatePurchaseTotal() {
+            const quantity = parseFloat(document.getElementById('purchaseQuantity').value) || 0;
+            const unitPrice = parseFloat(document.getElementById('purchaseUnitPrice').value) || 0;
+            const total = quantity * unitPrice;
+            document.getElementById('purchaseTotalAmount').value = total;
+        }
+
+        function addPurchase() {
+            const item = document.getElementById('purchaseItem').value;
+            const supplier = document.getElementById('supplierName').value;
+            const date = document.getElementById('purchaseDate').value;
+            const quantity = parseFloat(document.getElementById('purchaseQuantity').value);
+            const unit = document.getElementById('purchaseUnit').value;
+            const unitPrice = parseFloat(document.getElementById('purchaseUnitPrice').value);
+            const totalAmount = parseFloat(document.getElementById('purchaseTotalAmount').value);
+            const paymentType = document.getElementById('purchasePaymentType').value;
+            const notes = document.getElementById('purchaseNotes').value;
+
+            if (!item || !supplier || !quantity || !unitPrice || !date) {
+                alert('لطفاً اطلاعات ضروری را وارد کنید');
+                return;
+            }
+
+            const purchase = {
+                id: Date.now(),
+                item,
+                supplier,
+                date,
+                quantity,
+                unit,
+                unitPrice,
+                totalAmount,
+                paymentType,
+                notes
+            };
+
+            purchases.push(purchase);
+            localStorage.setItem('neginAlvand_purchases', JSON.stringify(purchases));
+            
+            loadPurchases();
+            updateDashboard();
+            hideAddPurchase();
+            
+            alert('خرید با موفقیت ثبت شد');
+        }
+
+        function loadPurchases() {
+            const tbody = document.getElementById('purchasesList');
+            
+            if (purchases.length === 0) {
+                tbody.innerHTML = '<tr><td colspan="7" class="p-8 text-center text-gray-500">هیچ خریدی ثبت نشده است</td></tr>';
+                return;
+            }
+
+            tbody.innerHTML = purchases.map(purchase => `
+                <tr class="border-b hover:bg-gray-50">
+                    <td class="p-3 text-sm">${new Date(purchase.date).toLocaleDateString('fa-IR')}</td>
+                    <td class="p-3 font-semibold text-sm">${purchase.item}</td>
+                    <td class="p-3 text-sm">${purchase.supplier}</td>
+                    <td class="p-3 text-sm">${purchase.quantity} ${getUnitText(purchase.unit)}</td>
+                    <td class="p-3 text-sm">${purchase.unitPrice.toLocaleString()} تومان</td>
+                    <td class="p-3 font-bold text-blue-600 text-sm">${purchase.totalAmount.toLocaleString()} تومان</td>
+                    <td class="p-3">
+                        <button onclick="deletePurchase(${purchase.id})" class="text-red-600 hover:text-red-800 text-sm">
+                            حذف
+                        </button>
+                    </td>
+                </tr>
+            `).join('');
+        }
+
+        function deletePurchase(id) {
+            if (confirm('آیا از حذف این خرید اطمینان دارید؟')) {
+                purchases = purchases.filter(p => p.id !== id);
+                localStorage.setItem('neginAlvand_purchases', JSON.stringify(purchases));
+                loadPurchases();
+                updateDashboard();
+            }
+        }
+
+        // Sales Functions
+        function showAddSale() {
+            document.getElementById('addSaleForm').classList.remove('hidden');
+            document.getElementById('saleDate').value = new Date().toISOString().split('T')[0];
+        }
+
+        function hideAddSale() {
+            document.getElementById('addSaleForm').classList.add('hidden');
+            clearSaleForm();
+        }
+
+        function clearSaleForm() {
+            document.getElementById('customerName').value = '';
+            document.getElementById('customerPhone').value = '';
+            document.getElementById('customerType').value = 'retail';
+            document.getElementById('saleWeight').value = '';
+            document.getElementById('saleQuality').value = 'A';
+            document.getElementById('pricePerKg').value = '';
+            document.getElementById('saleTotalAmount').value = '';
+            document.getElementById('salePaymentType').value = 'cash';
+            document.getElementById('costPrice').value = '';
+            document.getElementById('saleDate').value = '';
+            document.getElementById('saleNotes').value = '';
+        }
+
+        function calculateSaleTotal() {
+            const weight = parseFloat(document.getElementById('saleWeight').value) || 0;
+            const price = parseFloat(document.getElementById('pricePerKg').value) || 0;
+            const total = weight * price;
+            document.getElementById('saleTotalAmount').value = total;
+        }
+
+        function addSale() {
+            const customerName = document.getElementById('customerName').value;
+            const customerPhone = document.getElementById('customerPhone').value;
+            const customerType = document.getElementById('customerType').value;
+            const weight = parseFloat(document.getElementById('saleWeight').value);
+            const quality = document.getElementById('saleQuality').value;
+            const pricePerKg = parseFloat(document.getElementById('pricePerKg').value);
+            const totalAmount = parseFloat(document.getElementById('saleTotalAmount').value);
+            const paymentType = document.getElementById('salePaymentType').value;
+            const costPrice = parseFloat(document.getElementById('costPrice').value) || 0;
+            const date = document.getElementById('saleDate').value;
+            const notes = document.getElementById('saleNotes').value;
+
+            if (!customerName || !weight || !pricePerKg || !date) {
+                alert('لطفاً اطلاعات ضروری را وارد کنید');
+                return;
+            }
+
+            const profit = (pricePerKg - costPrice) * weight;
+
+            const sale = {
+                id: Date.now(),
+                customerName,
+                customerPhone,
+                customerType,
+                weight,
+                quality,
+                pricePerKg,
+                totalAmount,
+                paymentType,
+                costPrice,
+                profit,
+                date,
+                notes
+            };
+
+            sales.push(sale);
+            localStorage.setItem('neginAlvand_sales', JSON.stringify(sales));
+            
+            loadSales();
+            updateDashboard();
+            hideAddSale();
+            
+            alert('فروش با موفقیت ثبت شد');
+        }
+
+        function loadSales() {
+            const tbody = document.getElementById('salesList');
+            
+            if (sales.length === 0) {
+                tbody.innerHTML = '<tr><td colspan="7" class="p-8 text-center text-gray-500">هیچ فروشی ثبت نشده است</td></tr>';
+                return;
+            }
+
+            tbody.innerHTML = sales.map(sale => `
+                <tr class="border-b hover:bg-gray-50">
+                    <td class="p-3 text-sm">${new Date(sale.date).toLocaleDateString('fa-IR')}</td>
+                    <td class="p-3 font-semibold text-sm">${sale.customerName}</td>
+                    <td class="p-3 text-sm">${sale.weight} کیلو</td>
+                    <td class="p-3 text-sm">${sale.pricePerKg.toLocaleString()} تومان</td>
+                    <td class="p-3 font-bold text-green-600 text-sm">${sale.totalAmount.toLocaleString()} تومان</td>
+                    <td class="p-3 font-bold text-sm ${sale.profit >= 0 ? 'text-emerald-600' : 'text-red-600'}">${sale.profit.toLocaleString()} تومان</td>
+                    <td class="p-3">
+                        <button onclick="deleteSale(${sale.id})" class="text-red-600 hover:text-red-800 text-sm">
+                            حذف
+                        </button>
+                    </td>
+                </tr>
+            `).join('');
+        }
+
+        function deleteSale(id) {
+            if (confirm('آیا از حذف این فروش اطمینان دارید؟')) {
+                sales = sales.filter(s => s.id !== id);
+                localStorage.setItem('neginAlvand_sales', JSON.stringify(sales));
+                loadSales();
+                updateDashboard();
+            }
+        }
+
+        // Expense Functions
+        function showAddExpense() {
+            document.getElementById('addExpenseForm').classList.remove('hidden');
+            document.getElementById('expenseDate').value = new Date().toISOString().split('T')[0];
+        }
+
+        function hideAddExpense() {
+            document.getElementById('addExpenseForm').classList.add('hidden');
+            clearExpenseForm();
+        }
+
+        function clearExpenseForm() {
+            document.getElementById('expenseCategory').value = 'materials';
+            document.getElementById('expenseAmount').value = '';
+            document.getElementById('expenseDate').value = '';
+            document.getElementById('paidTo').value = '';
+            document.getElementById('expensePaymentType').value = 'cash';
+            document.getElementById('expenseDocNumber').value = '';
+            document.getElementById('expenseDescription').value = '';
+        }
+
+        function addExpense() {
+            const category = document.getElementById('expenseCategory').value;
+            const amount = parseFloat(document.getElementById('expenseAmount').value);
+            const date = document.getElementById('expenseDate').value;
+            const paidTo = document.getElementById('paidTo').value;
+            const paymentType = document.getElementById('expensePaymentType').value;
+            const docNumber = document.getElementById('expenseDocNumber').value;
+            const description = document.getElementById('expenseDescription').value;
+
+            if (!amount || !date) {
+                alert('لطفاً مبلغ و تاریخ را وارد کنید');
+                return;
+            }
+
+            const expense = {
+                id: Date.now(),
+                category,
+                amount,
+                date,
+                paidTo,
+                paymentType,
+                docNumber,
+                description
+            };
+
+            expenses.push(expense);
+            localStorage.setItem('neginAlvand_expenses', JSON.stringify(expenses));
+            
+            loadExpenses();
+            updateDashboard();
+            hideAddExpense();
+            
+            alert('هزینه با موفقیت ثبت شد');
+        }
+
+        function loadExpenses() {
+            const tbody = document.getElementById('expensesList');
+            
+            if (expenses.length === 0) {
+                tbody.innerHTML = '<tr><td colspan="6" class="p-8 text-center text-gray-500">هیچ هزینه‌ای ثبت نشده است</td></tr>';
+                return;
+            }
+
+            tbody.innerHTML = expenses.map(expense => `
+                <tr class="border-b hover:bg-gray-50">
+                    <td class="p-3 text-sm">${new Date(expense.date).toLocaleDateString('fa-IR')}</td>
+                    <td class="p-3 text-sm">${getExpenseCategoryText(expense.category)}</td>
+                    <td class="p-3 font-bold text-red-600 text-sm">${expense.amount.toLocaleString()} تومان</td>
+                    <td class="p-3 text-sm">${expense.paidTo || '-'}</td>
+                    <td class="p-3 text-sm">${getPaymentTypeText(expense.paymentType)}</td>
+                    <td class="p-3">
+                        <button onclick="deleteExpense(${expense.id})" class="text-red-600 hover:text-red-800 text-sm">
+                            حذف
+                        </button>
+                    </td>
+                </tr>
+            `).join('');
+        }
+
+        function deleteExpense(id) {
+            if (confirm('آیا از حذف این هزینه اطمینان دارید؟')) {
+                expenses = expenses.filter(e => e.id !== id);
+                localStorage.setItem('neginAlvand_expenses', JSON.stringify(expenses));
+                loadExpenses();
+                updateDashboard();
+            }
+        }
+
+        // Dashboard Functions
+        function updateDashboard() {
+            const today = new Date().toISOString().split('T')[0];
+            const thisMonth = getThisMonthDates();
+            
+            // Today's production
+            const todayProduction = productions
+                .filter(p => p.date === today)
+                .reduce((sum, p) => sum + p.weight, 0);
+            
+            // Monthly revenue
+            const monthlyRevenue = sales
+                .filter(s => thisMonth.includes(s.date))
+                .reduce((sum, s) => sum + s.totalAmount, 0);
+            
+            // Active halls
+            const activeHalls = halls.filter(h => h.status === 'active').length;
+            
+            // Net profit
+            const totalRevenue = sales.reduce((sum, s) => sum + s.totalAmount, 0);
+            const totalExpenses = expenses.reduce((sum, e) => sum + e.amount, 0);
+            const totalPurchases = purchases.reduce((sum, p) => sum + p.totalAmount, 0);
+            const netProfit = totalRevenue - totalExpenses - totalPurchases;
+
+            document.getElementById('todayProduction').textContent = todayProduction.toFixed(1) + ' کیلو';
+            document.getElementById('monthlyRevenue').textContent = monthlyRevenue.toLocaleString() + ' تومان';
+            document.getElementById('activeHalls').textContent = activeHalls;
+            document.getElementById('netProfit').textContent = netProfit.toLocaleString() + ' تومان';
+        }
+
+        // Report Functions
+        function generateProductionReport() {
+            const fromDate = document.getElementById('reportFromDate').value;
+            const toDate = document.getElementById('reportToDate').value;
+            const hall = document.getElementById('reportHall').value;
+            
+            let filteredProductions = productions;
+            
+            if (fromDate) {
+                filteredProductions = filteredProductions.filter(p => p.date >= fromDate);
+            }
+            if (toDate) {
+                filteredProductions = filteredProductions.filter(p => p.date <= toDate);
+            }
+            if (hall) {
+                filteredProductions = filteredProductions.filter(p => p.hall === hall);
+            }
+            
+            const reportDisplay = document.getElementById('reportDisplay');
+            const reportTitle = document.getElementById('reportTitle');
+            const reportContent = document.getElementById('reportContent');
+            
+            reportTitle.textContent = '🍄 گزارش تولید';
+            
+            const totalProduction = filteredProductions.reduce((sum, p) => sum + p.weight, 0);
+            const totalCompost = filteredProductions.reduce((sum, p) => sum + p.compost, 0);
+            const avgEfficiency = totalCompost > 0 ? ((totalProduction / totalCompost) * 100).toFixed(1) : 0;
+            
+            reportContent.innerHTML = `
+                <div class="space-y-4">
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                        <div class="bg-emerald-100 p-4 rounded-xl text-center">
+                            <h4 class="font-semibold text-emerald-800">کل تولید</h4>
+                            <p class="text-xl font-bold text-emerald-600">${totalProduction.toFixed(1)} کیلو</p>
+                        </div>
+                        <div class="bg-blue-100 p-4 rounded-xl text-center">
+                            <h4 class="font-semibold text-blue-800">کل کمپوست</h4>
+                            <p class="text-xl font-bold text-blue-600">${totalCompost.toFixed(1)} کیلو</p>
+                        </div>
+                        <div class="bg-purple-100 p-4 rounded-xl text-center">
+                            <h4 class="font-semibold text-purple-800">راندمان متوسط</h4>
+                            <p class="text-xl font-bold text-purple-600">${avgEfficiency}%</p>
+                        </div>
+                    </div>
+                    <div class="overflow-x-auto">
+                        <table class="w-full border">
+                            <thead class="bg-gray-100">
+                                <tr>
+                                    <th class="p-3 text-right">تاریخ</th>
+                                    <th class="p-3 text-right">سالن</th>
+                                    <th class="p-3 text-right">تولید (کیلو)</th>
+                                    <th class="p-3 text-right">کمپوست (کیلو)</th>
+                                    <th class="p-3 text-right">راندمان (%)</th>
+                                    <th class="p-3 text-right">کیفیت</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                ${filteredProductions.map(p => `
+                                    <tr class="border-b">
+                                        <td class="p-3">${new Date(p.date).toLocaleDateString('fa-IR')}</td>
+                                        <td class="p-3">${p.hall}</td>
+                                        <td class="p-3">${p.weight}</td>
+                                        <td class="p-3">${p.compost}</td>
+                                        <td class="p-3">${p.efficiency}%</td>
+                                        <td class="p-3">${p.quality}</td>
+                                    </tr>
+                                `).join('')}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            `;
+            
+            reportDisplay.classList.remove('hidden');
+        }
+
+        function generateEfficiencyReport() {
+            const reportDisplay = document.getElementById('reportDisplay');
+            const reportTitle = document.getElementById('reportTitle');
+            const reportContent = document.getElementById('reportContent');
+            
+            reportTitle.textContent = '📈 گزارش راندمان سالن‌ها';
+            
+            const hallEfficiency = halls.map(hall => {
+                const hallProductions = productions.filter(p => p.hall === hall.displayName);
+                const totalProduction = hallProductions.reduce((sum, p) => sum + p.weight, 0);
+                const totalCompost = hallProductions.reduce((sum, p) => sum + p.compost, 0);
+                const efficiency = totalCompost > 0 ? ((totalProduction / totalCompost) * 100).toFixed(1) : 0;
+                
+                return {
+                    hall: hall.displayName,
+                    totalProduction,
+                    totalCompost,
+                    efficiency,
+                    harvestCount: hallProductions.length
+                };
+            });
+            
+            reportContent.innerHTML = `
+                <div class="space-y-4">
+                    <div class="overflow-x-auto">
+                        <table class="w-full border">
+                            <thead class="bg-gray-100">
+                                <tr>
+                                    <th class="p-3 text-right">سالن</th>
+                                    <th class="p-3 text-right">تعداد برداشت</th>
+                                    <th class="p-3 text-right">کل تولید (کیلو)</th>
+                                    <th class="p-3 text-right">کل کمپوست (کیلو)</th>
+                                    <th class="p-3 text-right">راندمان (%)</th>
+                                    <th class="p-3 text-right">وضعیت</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                ${hallEfficiency.map(h => `
+                                    <tr class="border-b">
+                                        <td class="p-3 font-semibold">${h.hall}</td>
+                                        <td class="p-3">${h.harvestCount}</td>
+                                        <td class="p-3">${h.totalProduction.toFixed(1)}</td>
+                                        <td class="p-3">${h.totalCompost.toFixed(1)}</td>
+                                        <td class="p-3 font-bold ${h.efficiency >= 20 ? 'text-green-600' : h.efficiency >= 15 ? 'text-orange-600' : 'text-red-600'}">${h.efficiency}%</td>
+                                        <td class="p-3">
+                                            <span class="px-2 py-1 rounded text-xs ${h.efficiency >= 20 ? 'bg-green-100 text-green-800' : h.efficiency >= 15 ? 'bg-orange-100 text-orange-800' : 'bg-red-100 text-red-800'}">
+                                                ${h.efficiency >= 20 ? 'عالی' : h.efficiency >= 15 ? 'خوب' : 'نیاز به بهبود'}
+                                            </span>
+                                        </td>
+                                    </tr>
+                                `).join('')}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            `;
+            
+            reportDisplay.classList.remove('hidden');
+        }
+
+        function generateProfitLossReport() {
+            const fromDate = document.getElementById('plFromDate').value;
+            const toDate = document.getElementById('plToDate').value;
+            
+            if (!fromDate || !toDate) {
+                alert('لطفاً دوره زمانی را انتخاب کنید');
+                return;
+            }
+            
+            const filteredSales = sales.filter(s => s.date >= fromDate && s.date <= toDate);
+            const filteredExpenses = expenses.filter(e => e.date >= fromDate && e.date <= toDate);
+            const filteredPurchases = purchases.filter(p => p.date >= fromDate && p.date <= toDate);
+            
+            const totalRevenue = filteredSales.reduce((sum, s) => sum + s.totalAmount, 0);
+            const totalExpenses = filteredExpenses.reduce((sum, e) => sum + e.amount, 0);
+            const totalPurchases = filteredPurchases.reduce((sum, p) => sum + p.totalAmount, 0);
+            const grossProfit = filteredSales.reduce((sum, s) => sum + s.profit, 0);
+            const netProfit = totalRevenue - totalExpenses - totalPurchases;
+            
+            const profitLossDisplay = document.getElementById('profitLossDisplay');
+            
+            profitLossDisplay.innerHTML = `
+                <div class="space-y-6">
+                    <div class="text-center mb-6">
+                        <h3 class="text-lg font-bold text-gray-800">گزارش سود و زیان</h3>
+                        <p class="text-sm text-gray-600">از ${new Date(fromDate).toLocaleDateString('fa-IR')} تا ${new Date(toDate).toLocaleDateString('fa-IR')}</p>
+                    </div>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="bg-green-50 p-4 rounded-xl">
+                            <h4 class="font-semibold text-green-800 mb-3">درآمدها</h4>
+                            <div class="space-y-2">
+                                <div class="flex justify-between">
+                                    <span>فروش محصولات:</span>
+                                    <span class="font-bold text-green-600">${totalRevenue.toLocaleString()} تومان</span>
+                                </div>
+                                <div class="border-t pt-2">
+                                    <div class="flex justify-between font-bold">
+                                        <span>کل درآمد:</span>
+                                        <span class="text-green-600">${totalRevenue.toLocaleString()} تومان</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-red-50 p-4 rounded-xl">
+                            <h4 class="font-semibold text-red-800 mb-3">هزینه‌ها</h4>
+                            <div class="space-y-2">
+                                <div class="flex justify-between">
+                                    <span>خرید مواد اولیه:</span>
+                                    <span class="font-bold text-red-600">${totalPurchases.toLocaleString()} تومان</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span>سایر هزینه‌ها:</span>
+                                    <span class="font-bold text-red-600">${totalExpenses.toLocaleString()} تومان</span>
+                                </div>
+                                <div class="border-t pt-2">
+                                    <div class="flex justify-between font-bold">
+                                        <span>کل هزینه:</span>
+                                        <span class="text-red-600">${(totalPurchases + totalExpenses).toLocaleString()} تومان</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-blue-50 p-6 rounded-xl text-center">
+                        <h4 class="font-semibold text-blue-800 mb-4">خلاصه نتایج</h4>
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                            <div>
+                                <p class="text-sm text-gray-600">سود ناخالص</p>
+                                <p class="text-xl font-bold ${grossProfit >= 0 ? 'text-green-600' : 'text-red-600'}">${grossProfit.toLocaleString()} تومان</p>
+                            </div>
+                            <div>
+                                <p class="text-sm text-gray-600">سود خالص</p>
+                                <p class="text-2xl font-bold ${netProfit >= 0 ? 'text-green-600' : 'text-red-600'}">${netProfit.toLocaleString()} تومان</p>
+                            </div>
+                            <div>
+                                <p class="text-sm text-gray-600">حاشیه سود</p>
+                                <p class="text-xl font-bold ${netProfit >= 0 ? 'text-green-600' : 'text-red-600'}">${totalRevenue > 0 ? ((netProfit / totalRevenue) * 100).toFixed(1) : 0}%</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        function printReport() {
+            window.print();
+        }
+
+        function exportReport() {
+            alert('قابلیت خروجی گزارش در نسخه‌های بعدی اضافه خواهد شد');
+        }
+
+        // Utility Functions
+        function getThisMonthDates() {
+            const now = new Date();
+            const year = now.getFullYear();
+            const month = now.getMonth();
+            const firstDay = new Date(year, month, 1);
+            const lastDay = new Date(year, month + 1, 0);
+            
+            const dates = [];
+            for (let d = new Date(firstDay); d <= lastDay; d.setDate(d.getDate() + 1)) {
+                dates.push(d.toISOString().split('T')[0]);
+            }
+            return dates;
+        }
+
+        function getQualityColor(quality) {
+            const colors = {
+                'A': 'bg-green-100 text-green-800',
+                'B': 'bg-blue-100 text-blue-800',
+                'C': 'bg-orange-100 text-orange-800',
+                'D': 'bg-red-100 text-red-800'
+            };
+            return colors[quality] || 'bg-gray-100 text-gray-800';
+        }
+
+        function getHallStatusClass(status) {
+            const classes = {
+                'active': 'status-active',
+                'maintenance': 'status-maintenance',
+                'inactive': 'status-inactive'
+            };
+            return classes[status] || 'bg-gray-500';
+        }
+
+        function getStatusText(status) {
+            const texts = {
+                'active': 'فعال',
+                'maintenance': 'تعمیرات',
+                'inactive': 'غیرفعال'
+            };
+            return texts[status] || status;
+        }
+
+        function getUnitText(unit) {
+            const units = {
+                'kg': 'کیلوگرم',
+                'ton': 'تن',
+                'liter': 'لیتر',
+                'piece': 'عدد',
+                'bag': 'کیسه'
+            };
+            return units[unit] || unit;
+        }
+
+        function getExpenseCategoryText(category) {
+            const categories = {
+                'materials': 'مواد اولیه',
+                'labor': 'نیروی کار',
+                'energy': 'انرژی',
+                'maintenance': 'تعمیر و نگهداری',
+                'transport': 'حمل و نقل',
+                'packaging': 'بسته‌بندی',
+                'insurance': 'بیمه',
+                'rent': 'اجاره',
+                'other': 'سایر'
+            };
+            return categories[category] || category;
+        }
+
+        function getPaymentTypeText(type) {
+            const types = {
+                'cash': 'نقدی',
+                'credit': 'اعتباری',
+                'check': 'چک',
+                'transfer': 'حواله',
+                'card': 'کارت'
+            };
+            return types[type] || type;
+        }
+
+        // Additional report functions would be implemented similarly...
+        function generateSalesReport() { /* Implementation */ }
+        function generatePurchaseReport() { /* Implementation */ }
+        function generateExpenseReport() { /* Implementation */ }
+        function generatePartyReport() { /* Implementation */ }
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9698bc9160b5ea1e',t:'MTc1NDI1NDc0My4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
